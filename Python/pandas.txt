@@ -1,0 +1,45 @@
+################################################################################################################################################################################
+import pandas as pd
+
+#Leer el archivo de excel
+
+xlsx  = pd.ExcelFile('datos.xlsx')
+
+
+#Lectura de cada hoja de excel, guardarla en un diccionario en la que cada key quede con una hoja del excel
+
+nombrehojas = xlsx.sheet_names
+diccionario = {}
+for i in nombrehojas:
+  diccionario [i] = pd.read_excel('datos.xlsx',sheet_name= i)
+
+#Revisar todos los DataFrames de la base de datos usando pandas, imprimalos para ver que datos tiene. Mire que tipo de datos son usando DF.dtypes
+#Verificar que si tengan las columnas compatibles .shape, head, .columns
+
+datos1 = pd.read_excel('datos.xlsx',sheet_name='datos_1')
+datos2 = pd.read_excel('datos.xlsx',sheet_name='datos_2')
+datos3 = pd.read_excel('datos.xlsx',sheet_name='datos_3')
+datos4 = pd.read_excel('datos.xlsx',sheet_name='datos_4')
+datoscomp = pd.read_excel('datos.xlsx',sheet_name='datos_completos')
+datos1_1 = pd.read_excel('datos.xlsx',sheet_name='datos_1_1')
+datos1.dtypes # para mirar el tipo de datos que tiene cada columna
+
+
+#Combine datos_1 y datos_1_1, verifique que la combinación quedo adecuada (Usar pd.join)
+
+resultado = datos1.join(datos1_1,lsuffix=None, rsuffix= None)
+
+#Combine el resultado anterior con las demás bases de datos (pd.concat)
+
+nuevo= pd.concat ([datos2,res])
+nuevo = pd.concat([nuevo,datos3])
+nuevo = pd.concat ([nuevo,datos4])
+
+#Cree una nueva columna que se llame Precio x metro cuadrado usando las demás columnas
+
+nuevo ['precio x metro'] = (nuevo ['Precio']/nuevo ['Area'])
+nuevo.head()
+
+#Halle el valor maximo y minimo de precio por metro cuadrado e indique las caracteristicas de cada una de ellas (Habitaciones, Amoblado, Precio, Barrio, Zona,etc)
+nuevo[nuevo['precio x metro'] == nuevo['precio x metro'].max()]
+nuevo[nuevo['precio x metro'] == nuevo['precio x metro'].min()]

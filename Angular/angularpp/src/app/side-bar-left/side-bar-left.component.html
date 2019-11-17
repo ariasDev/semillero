@@ -1,0 +1,8 @@
+<div class="container">
+    <ul class="listaMenu">
+        <li *ngFor="let item of menu; let i=index " (click)="navegar(item)">{{item}}</li>
+       
+    </ul>
+
+    <button (click)="evento()">PULSAR</button>
+</div>

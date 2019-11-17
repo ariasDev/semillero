@@ -1,0 +1,14 @@
+
+.listaMenu{
+    margin: 0;
+    list-style: none;
+    padding-inline-start: 0;
+    cursor:pointer;  
+}
+.listaMenu > li{
+    margin-bottom: 1%;
+    border: black 1px solid;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}

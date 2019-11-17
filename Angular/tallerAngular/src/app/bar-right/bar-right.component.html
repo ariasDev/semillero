@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="menu">
+        <button *ngFor="let item of menu ">{{item}}</button>
+    </div>
+
+    <div class="tabla">
+            <table>
+                    <tr class="encavezado">
+                        <th>Genero</th>
+                        <th>Nombre</th>
+                        <th>Numero</th>
+                        <th>Editar</th>
+                    </tr>
+                    <tr *ngFor="let item of body" class="contenido">
+                        <td>{{item.gender}}</td>
+                        <td>{{item.name.first}}</td>
+                        <td>{{item.phone}}</td>
+                        <td><button (click)="editar(item)">Editar</button></td>
+                    </tr>
+            </table>
+            <div *ngIf="bloqueEdit">
+
+                <p>nombre <input /></p>
+                <p>edad <input /></p>
+                <p>saldo <input/></p>
+
+            </div>
+    </div>
+
+</div>

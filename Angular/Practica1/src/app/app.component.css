@@ -1,0 +1,49 @@
+
+.container{
+    height: 100%;
+    width:  100%;
+    background: white;
+    color: black;
+}
+
+.header{
+    height: 10%;
+    width: 100%;
+    background: black;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.body{
+    display: flex;
+    height: 80%;
+    width: 100%;
+    background: white;
+}
+
+.footer{
+    height: 10%;
+    width: 100%;
+    background: grey;
+}
+
+.barLeft{
+    height: 100%;
+    width: 20%;
+    background: white;
+}
+
+.medium{
+    height: 100%;
+    width: 60%;
+    background: white;
+
+}
+
+.barRight{
+    height: 100%;
+    width: 20%;
+    background: white;
+
+}

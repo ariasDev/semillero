@@ -1,0 +1,39 @@
+import pandas as pd
+
+ 
+
+# Importarlo
+
+carros = pd.read_csv("Automobile_data.csv")
+
+carros.head()
+
+ 
+
+# Carro más caro
+
+carros[["company", "price"]][carros["price"] == carros["price"].max()]
+
+ 
+
+# Todos los Toyota
+
+carros[carros["company"] == "toyota"]
+
+ 
+
+# Cantidad de carros por marca
+
+carros.groupby(["company"])["company"].count()
+
+ 
+
+# Carro más caro por compañía
+
+carros.groupby(["company"])["price"].max()
+
+ 
+
+# Millas por galón promedio
+
+carros.groupby("company")["average-mileage"].mean().sort_values(ascending=False)

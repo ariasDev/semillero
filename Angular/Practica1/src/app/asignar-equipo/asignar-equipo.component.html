@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="encabezado">
+        <h1>Registro Asignación</h1>
+    </div>
+    <div class="card-form">
+
+        <form class="formulario" [formGroup]="formRegistro">
+
+            <p>id_ea <input  formControlName='id_ea' /></p>
+            <p>id_asignado  <input  formControlName='id_asignado' /></p>
+            <p>id_equipo  <input  formControlName='id_equipo' /></p>
+            <p>orden_instalacion  <input  formControlName='orden_instalacion'  /></p>
+            <p>fecha_asignacion  <input  formControlName='fecha_asignacion'  /></p>
+            <p>fecha_devolucion  <input  formControlName='fecha_devolucion'  /></p>
+            <p>id_entrega  <input  formControlName='id_entrega'/></p>
+            <p>estado  <input  formControlName='estado' /></p>
+            <p>observacion  <input  formControlName='observacion'  /></p>
+        </form>
+        <button class="boton" (click)="AsignarEquipo()">Enviar</button>
+
+    </div>
+</div>

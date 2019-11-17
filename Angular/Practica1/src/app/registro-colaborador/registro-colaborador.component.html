@@ -1,0 +1,21 @@
+<div class="container">
+        <div class="encabezado">
+            <h1>Registro Colaboradores</h1>
+        </div>
+        <div class="card-form">
+    
+            <form class="formulario" [formGroup]="formRegistro">
+    
+                <p>id <input  formControlName='id_colaboradores' placeholder="Ingrese su id" /></p>
+                <p>Nombre  <input  formControlName='nombre' placeholder="Ingrese su nombre" /></p>
+                <p>apellido  <input  formControlName='apellido' placeholder="Ingrese su apellido" /></p>
+                <p>cargo  <input  formControlName='cargo' placeholder="Ingrese su cargo" /></p>
+                <p>usuariored  <input  formControlName='usuariored' placeholder="Ingrese su usuariored" /></p>
+                <p>estado  <input  formControlName='estado' placeholder="Ingrese su estado" /></p>
+                <p>fecharegistro  <input  formControlName='fecharegistro' placeholder="Ingrese su fecharegistro" /></p>
+            </form>
+            <button class="boton" (click)="registrarse()">Registrarse</button>
+    
+    
+        </div>
+</div>

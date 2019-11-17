@@ -1,0 +1,204 @@
+// 1er ejercicio
+/* 
+Utilizando setTimeOut imprimir TIMED IUT! despues de 300ms
+*/
+
+setTimeout(()=> console.log('TIMED OUT!'), 300);
+
+// 2do ejercicio
+/* 
+Crear una promesa y resolverla con FULFILLED despues de 300ms
+*/
+
+const promise = new Promise(resolve => setTimeout(() => resolve('FULFILLED!'), 300));
+
+promise.then(console.log)
+
+// 3er ejercicio
+/*
+Then toma dos callbacks el primero cuando se promesa se resuelve y el segundo cuando es rechazada
+*/  
+
+const promise = new Promise((resolve, reject) => setTimeout(() => reject(new Error('REJECTED!')), 300));
+  
+const onReject = error => console.log(error.message);
+  
+promise.then(null, onReject);
+
+// 4to ejercicio
+/*
+Para probar que las promesas se resuelven o rechazan una unica vez crea una promesa que primero se resuelva y 
+luego se rechace para comprobar que solo se ejecutara la primera
+*/
+
+const promise = new Promise((resolve, reject) => {
+    resolve('I FIRED');
+    reject(new Error('I DID NOT FIRE'));
+  });
+  
+const onReject = error => console.log(error.message);
+
+promise.then(console.log, onReject);
+
+//5to ejercicio
+/*
+Para comprobar que las promesas son siempre asincronas genera una promesa resuelvela con valor de PROMISE VALUE,
+consumela e imprime MAIN PROGRAM para verificar que hasta que la promesa no se resuelva no se imprimira en pantalla
+*/
+
+const promise = new Promise((fulfill, reject) => fulfill('PROMISE VALUE'));
+  
+promise.then(console.log);
+  
+console.log('MAIN PROGRAM');
+
+// 6to ejercicio
+/*
+Usa los atajos de promesas sin el constructor y asegurate de usar al menos un .catch
+*/
+
+promise = Promise.resolve('Success');
+
+promise.then(console.log);
+
+promise1 = Promise.reject(new Error('It broke down'));
+
+promise1.catch(console.log);
+
+// 7mo ejercicio
+/*
+Para mostrar como encadenar promesas usa una funcion first para retornar una promesa que sera resuelta
+con un valor secreto, llama second con el valor resuelto de first retornando la promesa desde second 
+*/
+
+const firstPromise = first();
+
+const secondPromise = firstPromise.then(val => second(val));
+
+secondPromise.then(console.log);
+
+// 8vo ejercicio
+/*
+Construye una cadena que devuelva valores para probar que los handlers de promesas devolveran los valores de
+las mismas para permitir cambios adicionales
+*/
+
+const attachTitle = name => 'DR. ' + name;
+  
+Promise.resolve('MANHATTAN')
+.then(attachTitle)
+.then(console.log);
+
+//  9no ejercicio
+/*
+COnstruye una funcion llamada parsePromised que crea una promesa, haz un JSON.parse en un bloque try/catch
+y resuelve o rechaza la promesa dependiendo si un error es arrojado
+*/
+
+const parsePromised = json => 
+new Promise((fulfill, reject) => {
+try {
+    fulfill(JSON.parse(json));
+} catch (e) {
+    reject(e);
+}
+});
+  
+  
+const onReject = error => console.log(error.message);
+
+parsePromised(process.argv[2])
+.then(null, onReject);
+
+// 10mo ejercicio
+/*
+Crea una cadena de funciones que imprimen en consola, crea la funcion alwaysThrows que arroja un error con
+texto OH NOES crea una cadena de promesas usando promise.resolve que devuelve el metdo iterate, en la quinta llamda 
+llama a alwaysThrows y finalmente imprime in error
+*/
+
+const iterate  = num => {
+    console.log(num);
+    return num + 1;
+}
+  
+const alwaysThrows = _ => {
+    throw new Error('OH NOES');
+}
+  
+const onReject = error => console.log(error.message);
+  
+Promise.resolve(iterate(1))
+.then(iterate)
+.then(iterate)
+.then(iterate)
+.then(iterate)
+.then(alwaysThrows)
+.then(iterate)
+.then(iterate)
+.then(iterate)
+.then(iterate)
+.then(iterate)
+.catch(onReject);
+
+// 11vo ejercicio
+/*
+crea una funcion all que dbe recibir dos promesas como argumentos debera hacer todo lo siguiente
+crea una promesa interna como quieras, crea una variable counter con valor inicial cero añade then a ambas 
+promesas e incrementa el counter inciar cuando las promesas sean llamadas. Cuando el counter alcance 2 resuelve 
+la promesa interna con un arreglo que contenga ambos valores. FInalmente, retorna la promesa interna al usaurio
+*/
+
+const all = (a, b) =>
+new Promise((resolve, reject) => {
+    var counter = 0;
+    var out = [];
+
+    a.then(val => {
+    out[0] = val;
+    counter++;
+
+    if (counter >= 2) {
+        resolve(out);
+    }
+    });
+
+    b.then(val => {
+    out[1] = val;
+    counter++;
+
+    if (counter >= 2) {
+        resolve(out);
+    }
+    });
+});
+
+all(getPromise1(), getPromise2())
+.then(console.log);
+
+// 12vo ejercicio
+/*
+Crea una promesa que lea un json de q-io/http y lo muestre por consola si existe o imprima por consola un error
+*/
+
+const qhttp = require('q-io/http');
+
+qhttp.read("http://localhost:1337")
+.then(json => console.log(JSON.parse(json)))
+.catch(console.log)
+.done()
+
+// 13vo ejericio
+/*
+Manda una peticion HTTP a la sesion cache on puerto 7000 un string sera devuelto conteniendo un ID obten ese 
+id de la respuesta y envia una peticion GET a tu base de datos en puerto 7001 si es resuelto tu bd devolvera
+un objeto de usuario
+*/
+
+const qhttp = require('q-io/http');
+
+qhttp.read("http://localhost:7000/")
+.then(id => qhttp.read("http://localhost:7001/" + id))
+.then(json => console.log(JSON.parse(json)))
+.catch(console.log)
+.done();

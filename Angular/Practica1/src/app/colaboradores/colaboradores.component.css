@@ -1,0 +1,45 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    justify-content: center;
+}
+
+.encavezado th {
+    height: 10%;
+    text-align: right;
+    background: red;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    color:white;
+    border-collapse: collapse;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.contenido td{
+    text-align: right;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    border-collapse: collapse;
+    background: white; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.boton{
+    background: red;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.casillaBoton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

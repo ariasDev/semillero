@@ -1,0 +1,27 @@
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left{
+    height: 90%;
+    width: 30%;
+    background: white;
+}
+
+.medium{
+
+    height: 90%;
+    width: 30%;
+    background: white;
+}
+
+.right{
+    height: 90%;
+    width: 30%;
+    background: white;
+
+}

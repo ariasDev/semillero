@@ -1,0 +1,99 @@
+
+//------------------Example of async------------------
+
+const promiseTimeOut = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('this should come first');
+    }, 10000)
+});
+
+const javaScriptAsync = new Promise((resolve, reject) => {
+        resolve("This is async");    
+});
+
+const asyncExample = async() => {
+    let win = await javaScriptAsync;
+    console.log(win)
+    let promise1 = await promiseTimeOut;
+    console.log(promise1)  
+}
+
+asyncExample();
+
+//------------------Promises---------------------------
+
+const iWillLearnJavaScript = false;
+
+const javaScriptGrade = new Promise(
+    (resolve, reject) => {
+        if (iWillLearnJavaScript) {
+            resolve({
+                grade: 100
+            });
+        } else {
+            reject({
+                result: 'No way jose'  
+            });
+        }
+
+    }
+);
+
+const win = async () => {
+    try {
+        const didIPass = await javaScriptGrade;
+        console.log('You passed with a grade of ', didIPass.grade);
+    }catch(err){
+        console.log(err);
+    }
+}
+
+win();
+
+
+
+//-------------------------Promise chaining---------------------------
+
+const promise = new Promise((resolve, reject) => resolve('This is promise 1'));
+
+const promise2 = new Promise((resolve, reject) => resolve('this is promise 2'));
+
+const chain = _ => {
+    promise.then(Response => {
+        console.log(Response);
+        return promise2;
+    })
+    .then(Response => {
+        console.log(Response);
+    });
+}
+
+chain();
+
+//-------------------Practice---------------------------
+
+let adultAge = 18;
+
+const javaScriptAge = adultAge => {
+    return new Promise((resolve, reject) => {
+            const adult = 18;
+            if (adultAge >= adult) {
+                resolve(true);
+            } else {
+                reject(false);
+            }
+    
+        }
+    );
+}
+
+const consumePromise = async (age) => {
+    try {
+        let adult = await javaScriptAge(age);
+        console.log('you are an adult', adult)
+    } catch (err) {
+        console.log('you are not an adult', err)
+    }
+}
+
+consumePromise(19);

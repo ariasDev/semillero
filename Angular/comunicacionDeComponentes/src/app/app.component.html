@@ -1,0 +1,19 @@
+<div class="container">
+
+  
+  <div class="header">
+    <h1>HOLA</h1>
+    <h2 *ngIf="titulo2">mensajeRecivido</h2>
+    <h2 *ngIf="titulo3">SegundomensajeRecivido</h2>
+  </div>
+  <div class="Body">
+    <app-form [nombreDelpadre]="nombreDelpadre"
+              [mensaje]="mensajeParaElHijo" 
+              [mensaje2]="segundoMensaje" 
+              (mensajeSalida)="funcionRecibir($event)"
+              (modificarEstado)="recivirEstado($event)"></app-form>
+
+  </div>
+
+
+</div>

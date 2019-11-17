@@ -1,0 +1,16 @@
+<div class="container" *ngIf="cards" >
+
+    <div class="card" *ngFor="let item of body" (click)="editar(item)">
+
+                    <img class="imagen" src="../../assets/avatar-icon-png-10.jpg" alt="">
+                    <h3>Nombre: {{item.nombre}}</h3>
+                    <h3>Apellido: {{item.apellido}}</h3>
+                    <h3>Cargo:{{item.cargo}}</h3>
+    </div>
+</div>
+
+<div class="container2" *ngIf="container2">
+
+p´-
+    
+</div>

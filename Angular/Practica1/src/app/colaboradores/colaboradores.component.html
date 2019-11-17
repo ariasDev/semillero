@@ -1,0 +1,26 @@
+<div class="container">
+
+        <table>
+                <tr class="encavezado">
+                    <th>identificacion</th>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>cargo</th>
+                    <th>usuariored</th>
+                    <th>estado</th>
+                    <th>fecharegistro</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr *ngFor="let item of body" class="contenido">
+                    <td>{{item.id_colaboradores}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>{{item.cargo}}</td>
+                    <td>{{item.usuariored}}</td>
+                    <td>{{item.estado}}</td>
+                    <td>{{item.fecharegistro}}</td>
+                    <td><button class="boton" (click)="Eliminar(item)" >Eliminar</button></td>
+                </tr>
+            </table>
+    
+    </div>

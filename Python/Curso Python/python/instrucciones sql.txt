@@ -1,0 +1,50 @@
+//creacion de la tabla
+CREATE TABLE JEAH_PERSONAS(
+   id NUMBER(9),
+   nombre VARCHAR2(30),
+   apellido VARCHAR2(30),
+   sexo VARCHAR2(30),
+   correo VARCHAR2(30),
+   direccion VARCHAR2(30),
+   telefono NUMBER(30),
+   PRIMARY KEY (id)
+);
+
+//--------------------------------------------------------------------------------------------------inserts
+INSERT INTO JEAH_PERSONAS (id,nombre,apellido,sexo,correo,direccion,telefono)
+VALUES (1001,'juan','arias','masculino','juan@gmail.com','calle 45',3007326342);
+
+INSERT INTO public.personas(
+	sexo, nombre, id, direccion, correo, apellido, telefono)
+	VALUES ('', ?, ?, ?, ?, ?, ?);
+
+INSERT INTO JEAH_PERSONAS (id,nombre,apellido,sexo,correo,direccion,telefono)
+VALUES (1002,'ana','frank','femenino','ana@gmail.com','calle 45',3007326342);
+
+
+INSERT INTO "CAPACITACION1"."JEAH_PERSONAS" (ID, NOMBRE, APELLIDO, SEXO, CORREO, DIRECCION, TELEFONO) VALUES ('103', 'pepe', 'toño', 'masculino', 'pepe@gmail.com', 'calle 13', '432943948')
+INSERT INTO "CAPACITACION1"."JEAH_PERSONAS" (ID, NOMBRE, APELLIDO, SEXO, CORREO, DIRECCION, TELEFONO) VALUES ('104', 'andrea', 'parra', 'femenino', 'andrea@gmail.com', 'calle 14', '2433534')
+INSERT INTO "CAPACITACION1"."JEAH_PERSONAS" (ID, NOMBRE, APELLIDO, SEXO, CORREO, DIRECCION, TELEFONO) VALUES ('105', 'camilo', 'bello', 'masculino', 'camilo@gmail.com', 'calle15', '3243435344')
+
+//-------------------------------------------------------------------------------------------borrar la tabla
+DROP table JEAH_PERSONAS;
+
+//--------------------------------------------------------------------------------------------consultas
+select* from JEAH_PERSONAS;
+
+select* 
+from JEAH_PERSONAS
+where sexo='masculino';
+
+//---------------------------------------------------------------------------------------------procedimiento almacenado
+
+create procedure pa_libros_autor @genero varchar(30) 
+ as
+  select id,nombre
+   from JEAH_PERSONAS
+   where sexo= @genero;
+
+//----------------------------------------------------------------------------------------------INDICES
+execute sp_helpindex 'JEAH_PERSONAS'
+
+

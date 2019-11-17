@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div class="barraIzquierda">
+  </div>
+  <div class="layout">
+    <div class="header">
+      <div class="menu"></div>
+     <ul>
+         <li  (click)="navegar(item)" *ngFor="let item of menu" >{{item}}</li>
+     </ul>
+    </div>
+        
+    <div class="medio">
+        <router-outlet></router-outlet>
+    </div>
+      
+  </div>
+
+</div>

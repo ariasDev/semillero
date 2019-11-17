@@ -1,0 +1,22 @@
+<div class="container">
+
+    <table>
+            <tr class="encavezado">
+                <th>id</th>
+                <th>marca</th>
+                <th>discoduro</th>
+                <th>placa</th>
+                <th>fecharegistro</th>
+                <th>idrecibe</th>
+            </tr>
+            <tr *ngFor="let item of body" class="contenido">
+                <td>{{item.id}}</td>
+                <td>{{item.marca}}</td>
+                <td>{{item.discoduro}}</td>
+                <td>{{item.placa}}</td>
+                <td>{{item.fecharegistro}}</td>
+                <td>{{item.idrecibe}}</td>
+            </tr>
+        </table>
+
+</div>

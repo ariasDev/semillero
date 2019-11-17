@@ -1,0 +1,15 @@
+.container{
+    height: 100%;
+    width: 100%;
+    background: rgb(24, 24, 24); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+
+.imagen{
+    height: 20px;
+    margin-right:10px; 
+}

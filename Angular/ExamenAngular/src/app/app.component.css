@@ -1,0 +1,56 @@
+.container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+
+.barraIzquierda{
+    height: 100%;
+    width: 20%;
+    background: red;
+}
+
+.layout{
+    height: 100%;
+    width: 80%;
+}
+
+.header{
+    height: 15%;
+    width: 100%;
+    background: blue;
+}
+
+.encabezado{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    background: rgb(59, 41, 138);
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+ul{
+    padding-inline-start: 0;
+    margin-block-start: 0;
+}
+
+li{
+    list-style: none;
+    cursor: pointer;
+    height: 30px;
+    text-align: left;
+    background: white;
+    border: solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.medio{
+    height: 85%;
+    width: 100%;
+    background: white;
+}

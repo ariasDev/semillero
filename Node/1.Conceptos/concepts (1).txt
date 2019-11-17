@@ -1,0 +1,263 @@
+//-----------------------Finally------------------------------
+
+let nonExistentFunction = _ => "you didn't pass";
+
+let pity = _ => "screw it, you did";
+
+try {
+    let passed = nonExistentFunction();
+    if (passed !== "you passed")
+        throw "You failed"
+}
+catch(error) {
+    console.error(error);
+}
+finally {
+    console.log(pity());
+}
+
+
+//---------------------------for----------------------------------
+
+let multiples = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let threemul = [];
+
+for (let i = 0; i < multiples.length; i++)
+    console.log(multiples[i])
+
+for (let i = 0; i < multiples.length; i++)
+    if (multiples[i] % 3 === 0)
+        threemul.push(multiples[i]);
+
+console.log(threemul)
+
+//----------------------Break y continue---------------------------------
+
+let wordsArray = ["array", "break", "continue", "node", "angular"];
+
+for (let i = 0; i < wordsArray.length; i++){
+    if (wordsArray[i].length > 6){
+        console.log("the word: ", wordsArray[i], " has more characters than allowed. Loop broken")
+        break;
+    }
+}
+
+let evaluateEven = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+for (let i = 0; i < evaluateEven.length; i++){
+    if (evaluateEven[i] % 2 !== 0)
+        continue;
+    console.log(evaluateEven[i])
+}
+
+//---------------------indexof---------------------------------------
+
+let users = ["sebastian", "eliana", "ricardo", "laura", "jose", "david"];
+
+console.log('index of: ', users.indexOf("Andres"));
+
+let userRole = {
+                    "name": "Eliana",
+                    "role": "Admin"
+                };
+let verifyRole = _ => {
+    if (userRole.role.indexOf("Admin") !== -1)
+        console.log("is an Admin")
+    console.log("is not an admin")
+}
+
+verifyRole();
+
+//--------------Map, reduce, filter, forEach-----------------------------
+
+let numbers = [1, 5, 10, 15];
+let doubles = numbers.map(x => x * 2);
+
+console.log(doubles)
+
+let words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+let result = words.filter(word => word.length > 6);
+
+console.log(result)
+
+let array1 = [1, 2, 3, 4];
+let reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+console.log(array1.reduce(reducer))
+console.log(array1.reduce(reducer, 5))
+
+let names = ["Eliana", "Sebastian", "David", "Laura", "Xiomy", "Susana"];
+let index;
+
+names.forEach((element, i) => {
+    if (element === "David")
+        index = i;
+})
+
+console.log("The expected name is: ", names[index], " found in index: ", index)
+
+let sum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let prom = 0;
+
+sum.forEach(element => {
+    prom += element;
+})
+
+console.log("The sum of the array elements: ", prom, " with an average of: ", (prom/sum.length))
+
+//--------------------Desestructuracion-----------------------
+
+let [x,y, ...nums] = [0, 1, 2, 3, 4, 5, 6];
+console.log('primero:', x, '-', y, '-', nums);
+
+let{a, b, ...props} = {a:1, b:2, c:3, d:{e:4}};
+console.log('segundo', a, '-', b, '-', props);
+
+let dog = {name: 'fido', age: 3};
+let {name, age} = dog;
+let {name: myName, age: myAge} = dog;
+console.log('tercero', name, age);
+console.log('cuarto', myName, myAge);
+
+//--------------------Env variables-----------------
+
+require('dotenv').config();
+
+console.log("My name is ", process.env.NAME)
+
+//----------------spread syntax--------------------
+
+
+const arr = [4, 6, -1, 3, 10, 4];
+const max = Math.max(...arr);
+console.log(max);
+
+let sumValues = (x, y, z) => x + y + z;
+
+const valuesToAdd = [48, 6, 12];
+
+console.log(sumValues(... valuesToAdd))
+
+//----------------Rest syntax---------------------
+
+let rest = (x, y, ... args) => {
+    let sum = x + y;
+    args.forEach(element => {
+        sum += element;
+    })
+    return sum;
+}
+
+console.log(rest(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+
+
+
+
+
+
+
+
+//__________________________________________________________
+
+//----------------------------------------------------------
+
+// Async
+
+//------------------Example of async------------------
+
+const promiseTimeOut = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('this should come first');
+    }, 10000)
+});
+
+const javaScriptAsync = new Promise((resolve, reject) => {
+        resolve("This is async");    
+});
+
+const asyncExample = async() => {
+    let win = await javaScriptAsync;
+    console.log(win)
+    let promise1 = await promiseTimeOut;
+    console.log(promise1)  
+}
+
+asyncExample();
+
+//------------------Promises---------------------------
+
+const iWillLearnJavaScript = false;
+
+const javaScriptGrade = new Promise(
+    (resolve, reject) => {
+        if (iWillLearnJavaScript) {
+            resolve({
+                grade: 100
+            });
+        } else {
+            reject({
+                result: 'No way jose'  
+            });
+        }
+
+    }
+);
+
+const win = async () => {
+    try {
+        const didIPass = await javaScriptGrade;
+        console.log('You passed with a grade of ', didIPass.grade);
+    }catch(err){
+        console.log(err);
+    }
+}
+
+win();
+
+
+
+//-------------------------Promise chaining---------------------------
+
+const promise = new Promise((resolve, reject) => resolve('This is promise 1'));
+
+const promise2 = new Promise((resolve, reject) => resolve('this is promise 2'));
+
+const chain = _ => {
+    promise.then(Response => {
+        console.log(Response);
+        return promise2;
+    })
+    .then(Response => {
+        console.log(Response);
+    });
+}
+
+chain();
+
+//-------------------Practice---------------------------
+
+let adultAge = 18;
+
+const javaScriptAge = adultAge => {
+    return new Promise((resolve, reject) => {
+            const adult = 18;
+            if (adultAge >= adult) {
+                resolve(true);
+            } else {
+                reject(false);
+            }
+    
+        }
+    );
+}
+
+const consumePromise = async (age) => {
+    try {
+        let adult = await javaScriptAge(age);
+        console.log('you are an adult', adult)
+    } catch (err) {
+        console.log('you are not an adult', err)
+    }
+}
+
+consumePromise(19);

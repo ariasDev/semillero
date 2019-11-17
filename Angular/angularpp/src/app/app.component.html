@@ -1,0 +1,142 @@
+ <div class="container">
+  <div class="header"  >
+      {{mensajeDesdeHijo}}
+      <div *ngIf="mensajeDesdeBoton">
+          <h1>2019/09/19</h1>
+      </div>
+  </div>
+  <div class="flex-container">
+    <div class="side-left">
+      <app-side-bar-left (bontonPulsado)="funcionBoton($event)" ></app-side-bar-left>
+      
+    </div>
+    <div class="element3">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="side-right">
+      <app-side-bar-right [mensaje]="mensajePadreHijo"  (mensajeEvent)="funcionRecivir($event)"></app-side-bar-right>
+    </div>
+  </div>
+  <div class="footer">
+      <app-footer></app-footer>
+  </div>
+</div>
+
+  <!-- <div class="container">
+  <div class="header">
+      <div class="item1"></div>
+      <div class="item2"></div>
+  </div>
+  
+  <div class="medio">
+    <div class="item3"></div>
+    <div class="seccion1">
+      <div class="item4"></div>
+      <div class="item5"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="item6"></div>
+    <div class="item7"></div>
+    <div class="item8"></div>
+  </div>
+</div>  -->
+
+
+<!-- <div class="container">
+    <div class="cIzquierda"></div>
+    <div class="cDerecha">
+      <div class="fila1">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+      <div class="fila1">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+      </div>
+      <div class="fila1">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+      </div>
+     
+      <div class="piePagina">
+        <div class="linea"></div>
+        <div class="linea"></div>
+      </div>
+    </div>
+</div> -->
+
+
+<!-- 
+  ejercisio #3
+  <div class="container">
+  <div class="izquierda">
+    <div class="sup"></div>
+    <div class="block">
+      <div class="bIzquierda">
+        <div class="vl"></div>
+        <div class="cubo"></div>
+      </div>
+      <div class="bDerecha">
+          <div class="cubo"></div>
+          <div class="vl"></div>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div class="derecha">
+    
+  </div>
+
+</div> -->
+
+<!-- <div class="container">
+    
+    <div class="item1">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+    <div>7</div>
+    <div class="item8">8</div>
+    <div>9</div>
+    <div class="item10">10</div>
+    <div>11</div>
+    <div class="item12">12</div>
+</div> -->
+
+<!-- <div *ngIf="mostrar">
+    <h1>TITULO</h1>
+</div>
+
+<div *ngFor="let item of miArray; let i=index">
+    <h1>este es el lenguaje {{item}}</h1>
+</div>
+
+<div [ngSwitch]="switch">
+  <h1 *ngSwitchCase="1">caso 1</h1>
+  <h1 *ngSwitchCase="2">caso 2</h1>
+  <h1 *ngSwitchDefault>caso default</h1>
+</div> -->
+
+<!-- <div *ngIf="mostrar">
+            <h1>TITULO</h1>
+        </div>
+        
+        <div *ngFor="let item of miArray; let i=index">
+            <h1>este es el lenguaje {{item}}</h1>
+        </div>
+        
+        <div [ngSwitch]="switch">
+          <h1 *ngSwitchCase="1">caso 1</h1>
+          <h1 *ngSwitchCase="2">caso 2</h1>
+          <h1 *ngSwitchDefault>caso default</h1>
+        </div> -->
+

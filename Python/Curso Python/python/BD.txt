@@ -1,0 +1,18 @@
+#Halle el valor maximo y minimo de precio por metro cuadrado e indique las caracteristicas de cada una de ellas (Habitaciones, Amoblado, Precio, Barrio, Zona,etc)
+#Leer el archivo de excel
+datos = pd.ExcelFile("DatosApartamentos.xlsx")
+#print(datos.sheet_names)
+
+#Leer datos
+Datos_DB2 = datos.parse("Datos_Completos")
+
+#Diccionario de la DB
+DiccionarioDB={
+    "Datos_Apto":Datos_DB2
+}
+#Muestra en Datos toda la BD nueva
+Datos=DiccionarioDB["Datos_Apto"]
+#Datos.keys()
+
+#Datos[["PrecioMetro","Barrio ","Zona","Estrato","Area","Num. Habitaciones","Num. Baños","Parqueadero","Amoblado","Precio"]][Datos["PrecioMetro"] == Datos["PrecioMetro"].max()]
+#Datos[["PrecioMetro","Barrio ","Zona","Estrato","Area","Num. Habitaciones","Num. Baños","Parqueadero","Amoblado","Precio"]][Datos["PrecioMetro"] == Datos["PrecioMetro"].min()]

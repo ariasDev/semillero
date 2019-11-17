@@ -1,0 +1,13 @@
+<div class="container">
+
+  <div class="left">
+    <app-bar-left (EnviarRespuesta)="recibirObjeto($event)"></app-bar-left>
+  </div>
+  <div class="medium">
+    <app-medium [resultado]="objetoApi"></app-medium>
+  </div>
+  <div class="right">
+    <app-bar-right [body]="objetoApi"></app-bar-right>
+  </div>
+
+</div>

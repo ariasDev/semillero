@@ -1,0 +1,28 @@
+<div class="container">
+
+        <table>
+                <tr class="encavezado">
+                    <th>id_ea</th>
+                    <th>id_asignado</th>
+                    <th>id_equipo</th>
+                    <th>orden_instalacion</th>
+                    <th>fecha_asignacion</th>
+                    <th>fecha_devolucion</th>
+                    <th>id_entrega</th>
+                    <th>estado</th>
+                    <th>observacion</th>
+                </tr>
+                <tr *ngFor="let item of body" class="contenido">
+                    <td>{{item.id_ea}}</td>
+                    <td>{{item.id_asignado}}</td>
+                    <td>{{item.id_equipo}}</td>
+                    <td>{{item.orden_instalacion}}</td>
+                    <td>{{item.fecha_asignacion}}</td>
+                    <td>{{item.fecha_devolucion}}</td>
+                    <td>{{item.id_entrega}}</td>
+                    <td>{{item.estado}}</td>
+                    <td>{{item.observacion}}</td>
+                </tr>
+            </table>
+    
+    </div>

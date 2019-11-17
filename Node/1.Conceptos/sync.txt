@@ -1,0 +1,56 @@
+
+//------------------Example of async------------------
+
+const asyncExample = () => {
+    console.log('this should come first')
+    console.log("This is async")  
+}
+
+asyncExample();
+
+//------------------Promises---------------------------
+
+const iWillLearnJavaScript = false;
+
+const win = () => {
+    if (iWillLearnJavaScript) {
+        console.log({
+            grade: 100
+        });
+    } else {
+        console.log({
+            result: 'No way jose'  
+        });
+    }
+}
+
+win();
+
+
+
+//-------------------------Promise chaining---------------------------
+
+const promise = new Promise((resolve, reject) => resolve('This is promise 1'));
+
+const promise2 = new Promise((resolve, reject) => resolve('this is promise 2'));
+
+const chain = _ => {
+    console.log('This is promise 1')
+    console.log('This is promise 2')
+}
+
+chain();
+
+//-------------------Practice---------------------------
+
+let adultAge = 18;
+
+const consumePromise = (age) => {
+    if (age >= adultAge) {
+        console.log('you are an adult', true)
+    } else {
+        console.log('you are not an adult', false)
+    }
+}
+
+consumePromise(19);

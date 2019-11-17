@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="encabezado">
+        <h1>Registro</h1>
+    </div>
+    <div class="card-form">
+
+        <form class="formulario" [formGroup]="formRegistro">
+
+            <p>id <input  formControlName='id' placeholder="Ingrese su id" /></p>
+            <p>Nombre  <input  formControlName='nombre' placeholder="Ingrese su nombre" /></p>
+            <p>apellido  <input  formControlName='apellido' placeholder="Ingrese su apellido" /></p>
+            <p>saldo  <input  formControlName='saldo' placeholder="Ingrese su saldo" /></p>
+            <p>credito  <input  formControlName='credito' placeholder="Ingrese su credito" /></p>
+        </form>
+        <button class="boton" (click)="registrarse()">Registrarse</button>
+
+
+    </div>
+</div>

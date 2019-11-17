@@ -1,0 +1,14 @@
+.footerContainer{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerImg{
+    width: 1.5%;
+}
+
+i{
+    color: white;
+}

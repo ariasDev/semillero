@@ -1,0 +1,22 @@
+.container
+{
+    height: 100%;
+    width: 100%;
+    background: yellow;
+    margin: 0px;
+
+}
+.header{
+    display: flex;
+    height: 20%;
+    width: 100%;
+    background:green;
+}
+
+.Body{
+    height: 80%;
+    width: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
